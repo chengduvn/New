@@ -6,10 +6,10 @@ jobs:
     steps:
       - name: Pull and Save
         run: |
-          docker pull evolutionapi/evolution-api:v1.6.1
-          docker save evolutionapi/evolution-api:v1.6.1 > evolution_v161.tar
+          docker pull dav74/evolution-api:latest
+          docker save dav74/evolution-api:latest > evolution_stable.tar
       - name: Upload
         uses: actions/upload-artifact@v4
         with:
           name: evolution-image
-          path: evolution_v161.tar
+          path: evolution_stable.tar
