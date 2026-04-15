@@ -1,0 +1,16 @@
+name: Download Evolution Image
+on: workflow_dispatch # Dùng cái này để bạn có thể bấm nút chạy thủ công
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull and Save Image
+        run: |
+          docker pull evolutionapi/evolution-api:latest
+          docker save evolutionapi/evolution-api:latest > evolution.tar
+      - name: Upload Image Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: evolution-tar-file
+          path: evolution.tar
